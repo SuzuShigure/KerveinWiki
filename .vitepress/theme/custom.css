@@ -1,4 +1,28 @@
 :root {
+  --vp-c-bg: #ffffff;
+  --vp-c-bg-alt: #ffffff;
+  --vp-c-bg-elv: #ffffff;
+  --vp-c-bg-soft: #f7f7f7;
+  --vp-c-bg-mute: #f0f0f0;
+  --vp-c-divider: #e5e5e5;
+  --vp-c-gutter: #e5e5e5;
+  --vp-c-text-1: #171717;
+  --vp-c-text-2: #666666;
+  --vp-c-text-3: #8a8a8a;
+  --vp-c-brand-1: #171717;
+  --vp-c-brand-2: #404040;
+  --vp-c-brand-3: #666666;
+  --vp-c-brand-soft: rgba(0, 0, 0, 0.06);
+  --wiki-button-bg: #171717;
+  --wiki-button-fg: #ffffff;
+  --wiki-button-border: #171717;
+  --wiki-button-hover: #303030;
+  --vp-font-family-base: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --vp-font-family-mono: "Cascadia Code", "JetBrains Mono", Consolas, monospace;
+}
+
+.dark {
   --vp-c-bg: #0d0d0d;
   --vp-c-bg-alt: #0d0d0d;
   --vp-c-bg-elv: #131313;
@@ -13,9 +37,10 @@
   --vp-c-brand-2: #d4d4d4;
   --vp-c-brand-3: #a3a3a3;
   --vp-c-brand-soft: rgba(255, 255, 255, 0.08);
-  --vp-font-family-base: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
-  --vp-font-family-mono: "Cascadia Code", "JetBrains Mono", Consolas, monospace;
+  --wiki-button-bg: #f5f5f5;
+  --wiki-button-fg: #101010;
+  --wiki-button-border: #f5f5f5;
+  --wiki-button-hover: #ffffff;
 }
 
 * {
@@ -24,7 +49,7 @@
 
 html,
 body {
-  background: #0d0d0d;
+  background: var(--vp-c-bg);
 }
 
 body {
@@ -32,38 +57,41 @@ body {
 }
 
 .VPNav {
-  background: rgba(13, 13, 13, 0.92);
+  background: color-mix(in srgb, var(--vp-c-bg) 92%, transparent);
   backdrop-filter: blur(14px);
 }
 
 .VPNavBar {
-  border-bottom: 1px solid #1d1d1d;
+  border-bottom: 1px solid var(--vp-c-divider);
 }
 
 .VPNavBar .title {
-  color: #f5f5f5;
+  color: var(--vp-c-text-1);
   font-size: 0.9rem;
   letter-spacing: 0.02em;
 }
 
 .VPNavBarMenuLink {
-  color: #8e8e8e;
+  color: var(--vp-c-text-2);
   font-size: 0.82rem;
 }
 
 .VPNavBarMenuLink:hover,
 .VPNavBarMenuLink.active {
-  color: #f5f5f5;
+  color: var(--vp-c-text-1);
 }
 
-.VPNavBarAppearance,
 .VPNavBarSocialLinks {
   display: none;
 }
 
+.VPNavBarAppearance {
+  display: flex;
+}
+
 .VPHome {
   min-height: calc(100vh - var(--vp-nav-height));
-  background: #0d0d0d;
+  background: var(--vp-c-bg);
 }
 
 .VPHome .VPHero,
@@ -94,7 +122,7 @@ body {
 }
 
 .wiki-minimal-kicker {
-  color: #777;
+  color: var(--vp-c-text-3);
   font-family: var(--vp-font-family-mono);
   font-size: 0.7rem;
   font-weight: 600;
@@ -104,7 +132,7 @@ body {
 .wiki-minimal-home h1 {
   max-width: 32rem;
   margin: 1.25rem auto 1rem !important;
-  color: #f5f5f5;
+  color: var(--vp-c-text-1);
   font-family: Georgia, "Times New Roman", "Songti SC", serif;
   font-size: clamp(2rem, 5vw, 3.25rem);
   font-weight: 400;
@@ -113,7 +141,7 @@ body {
 }
 
 .wiki-minimal-lead {
-  color: #858585;
+  color: var(--vp-c-text-2);
   font-size: 0.95rem;
   line-height: 1.75;
 }
@@ -132,30 +160,30 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0.65rem 1rem;
-  border: 1px solid #303030;
+  border: 1px solid var(--vp-c-divider);
   border-radius: 0.5rem;
-  color: #bdbdbd;
+  color: var(--vp-c-text-2);
   font-size: 0.84rem;
   text-decoration: none;
   transition: border-color 150ms ease, background 150ms ease, color 150ms ease;
 }
 
 .wiki-minimal-button:hover {
-  border-color: #555;
-  background: #171717;
-  color: #fff;
+  border-color: var(--vp-c-text-3);
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-1);
 }
 
 .wiki-minimal-button-primary {
-  border-color: #f5f5f5;
-  background: #f5f5f5;
-  color: #101010;
+  border-color: var(--wiki-button-border);
+  background: var(--wiki-button-bg);
+  color: var(--wiki-button-fg);
 }
 
 .wiki-minimal-button-primary:hover {
-  border-color: #fff;
-  background: #fff;
-  color: #000;
+  border-color: var(--wiki-button-hover);
+  background: var(--wiki-button-hover);
+  color: var(--wiki-button-fg);
 }
 
 .wiki-minimal-footer {
@@ -164,22 +192,22 @@ body {
   justify-content: center;
   gap: 0.55rem;
   margin-top: 3rem !important;
-  color: #5c5c5c;
+  color: var(--vp-c-text-3);
   font-size: 0.76rem;
 }
 
 .wiki-minimal-footer a {
-  color: #777;
+  color: var(--vp-c-text-2);
   text-decoration: none;
   transition: color 150ms ease;
 }
 
 .wiki-minimal-footer a:hover {
-  color: #f5f5f5;
+  color: var(--vp-c-text-1);
 }
 
 .wiki-minimal-footer span {
-  color: #3f3f3f;
+  color: var(--vp-c-divider);
 }
 
 .vp-doc h1 {
@@ -194,8 +222,8 @@ body {
 
 .vp-doc blockquote {
   border-left-width: 3px;
-  border-left-color: #777;
-  background: #141414;
+  border-left-color: var(--vp-c-text-3);
+  background: var(--vp-c-bg-soft);
 }
 
 .vp-doc table {

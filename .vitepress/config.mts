@@ -6,8 +6,11 @@ export default defineConfig({
   lang: 'zh-CN',
   cleanUrls: true,
   lastUpdated: true,
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' }],
+  ],
   themeConfig: {
-    appearance: 'dark',
+    appearance: true,
     siteTitle: 'Kervein Wiki',
     nav: [
       { text: '首页', link: '/' },
