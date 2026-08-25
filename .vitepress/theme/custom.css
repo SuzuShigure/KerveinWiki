@@ -1,8 +1,13 @@
 :root {
-  --vp-c-brand-1: #7c3aed;
-  --vp-c-brand-2: #8b5cf6;
-  --vp-c-brand-3: #a78bfa;
-  --vp-c-brand-soft: rgba(124, 58, 237, 0.12);
+  --vp-c-brand-1: #6d28d9;
+  --vp-c-brand-2: #7c3aed;
+  --vp-c-brand-3: #8b5cf6;
+  --vp-c-brand-soft: rgba(109, 40, 217, 0.1);
+  --wiki-ink: #18181b;
+  --wiki-muted: #71717a;
+  --wiki-line: #e4e4e7;
+  --wiki-surface: #ffffff;
+  --wiki-wash: #f7f7f9;
   --vp-font-family-base: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
   --vp-font-family-mono: "Cascadia Code", "JetBrains Mono", Consolas, monospace;
@@ -15,6 +20,11 @@
   --vp-c-divider: rgba(255, 255, 255, 0.1);
   --vp-c-text-1: #f4f4f5;
   --vp-c-text-2: #c4c4cc;
+  --wiki-ink: #fafafa;
+  --wiki-muted: #a1a1aa;
+  --wiki-line: rgba(255, 255, 255, 0.12);
+  --wiki-surface: #121216;
+  --wiki-wash: #17171c;
 }
 
 .VPNavBarTitle .title {
@@ -26,42 +36,61 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  margin: 1.5rem auto 0;
-  padding: 5rem 3rem 4.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 28px;
-  background:
-    linear-gradient(90deg, rgba(5, 5, 7, 0.93) 0%, rgba(5, 5, 7, 0.76) 47%, rgba(5, 5, 7, 0.2) 100%),
-    url('/assets/banner.png') center / cover;
-  box-shadow: 0 22px 70px rgba(15, 15, 20, 0.2);
+  margin: 1.25rem auto 0;
+  padding: 4.5rem 3.5rem 4rem;
+  border: 1px solid var(--wiki-line);
+  border-radius: 22px;
+  background: linear-gradient(135deg, var(--wiki-wash), var(--wiki-surface));
+  box-shadow: 0 18px 55px rgba(24, 24, 27, 0.08);
 }
 
 .VPHome .VPHero::after {
   content: '';
   position: absolute;
-  inset: auto 8% -35% 35%;
+  right: 11%;
+  bottom: -42%;
   z-index: -1;
-  height: 65%;
+  width: 36%;
+  height: 80%;
   border-radius: 50%;
-  background: rgba(124, 58, 237, 0.24);
-  filter: blur(70px);
+  background: rgba(124, 58, 237, 0.12);
+  filter: blur(85px);
 }
 
 .VPHome .VPHero .name,
 .VPHome .VPHero .text,
 .VPHome .VPHero .tagline {
-  color: #fff;
+  color: var(--wiki-ink);
 }
 
 .VPHome .VPHero .name {
-  background: linear-gradient(120deg, #fff 15%, #d8b4fe 80%);
-  -webkit-background-clip: text;
-  background-clip: text;
+  letter-spacing: -0.035em;
+}
+
+.VPHome .VPHero .tagline {
+  color: var(--wiki-muted);
+}
+
+.VPHome .VPHero .image-src {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 28px;
+  box-shadow: 0 22px 55px rgba(24, 24, 27, 0.2);
+}
+
+.dark .VPHome .VPHero .image-src {
+  filter: invert(1);
+}
+
+.VPHome .VPFeatures {
+  padding-top: 2.5rem;
 }
 
 .VPHome .VPFeatures .VPFeature {
-  border: 1px solid var(--vp-c-divider);
-  border-radius: 18px;
+  border: 1px solid var(--wiki-line);
+  border-radius: 14px;
+  background: var(--wiki-surface);
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
 
@@ -69,6 +98,219 @@
   transform: translateY(-3px);
   border-color: var(--vp-c-brand-2);
   box-shadow: 0 14px 32px rgba(124, 58, 237, 0.12);
+}
+
+.VPHome .vp-doc {
+  max-width: 1152px;
+  padding-top: 3rem;
+}
+
+.VPHome .vp-doc h2 {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.wiki-welcome {
+  max-width: 720px;
+  margin: 0 auto 5.5rem;
+  text-align: center;
+}
+
+.wiki-welcome h2,
+.wiki-section-heading h2,
+.wiki-community h2 {
+  color: var(--wiki-ink);
+  letter-spacing: -0.03em;
+}
+
+.wiki-welcome p,
+.wiki-section-heading p,
+.wiki-community p {
+  color: var(--wiki-muted);
+  line-height: 1.8;
+}
+
+.wiki-kicker {
+  color: var(--vp-c-brand-1);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.wiki-section {
+  margin: 0 auto 5.5rem;
+}
+
+.wiki-section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.wiki-section-heading p {
+  max-width: 380px;
+  margin: 0;
+  text-align: right;
+}
+
+.wiki-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.wiki-card,
+.wiki-feature {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wiki-card {
+  display: flex;
+  min-height: 220px;
+  flex-direction: column;
+  padding: 1.5rem;
+  border: 1px solid var(--wiki-line);
+  border-radius: 14px;
+  background: var(--wiki-surface);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.wiki-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--vp-c-brand-2);
+  box-shadow: 0 16px 35px rgba(24, 24, 27, 0.1);
+}
+
+.wiki-card-index,
+.wiki-feature-number {
+  color: var(--vp-c-brand-1);
+  font-family: var(--vp-font-family-mono);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.wiki-card h3,
+.wiki-feature h3 {
+  margin: 1.5rem 0 0.5rem;
+  color: var(--wiki-ink);
+}
+
+.wiki-card p,
+.wiki-feature p {
+  margin: 0;
+  color: var(--wiki-muted);
+  line-height: 1.7;
+}
+
+.wiki-card-link,
+.wiki-section-link {
+  margin-top: auto;
+  color: var(--vp-c-brand-1);
+  font-size: 0.9rem;
+  font-weight: 650;
+}
+
+.wiki-section-link {
+  text-decoration: none;
+}
+
+.wiki-feature-list {
+  border-top: 1px solid var(--wiki-line);
+}
+
+.wiki-feature {
+  display: grid;
+  grid-template-columns: 4rem 1fr auto;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid var(--wiki-line);
+  transition: padding 180ms ease, background 180ms ease;
+}
+
+.wiki-feature:hover {
+  padding-right: 0.75rem;
+  padding-left: 0.75rem;
+  background: var(--wiki-wash);
+}
+
+.wiki-feature h3 {
+  margin: 0 0 0.35rem;
+}
+
+.wiki-feature > span {
+  color: var(--vp-c-brand-1);
+  font-weight: 650;
+}
+
+.wiki-community {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 0 auto 3.5rem;
+  padding: 2.5rem 3rem;
+  border-radius: 18px;
+  color: #fff;
+  background:
+    linear-gradient(90deg, rgba(8, 8, 10, 0.95), rgba(8, 8, 10, 0.64)),
+    url('/assets/banner.png') center / cover;
+}
+
+.wiki-community h2 {
+  margin: 0.6rem 0 0.5rem;
+  color: #fff;
+}
+
+.wiki-community p {
+  max-width: 640px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.wiki-community-button {
+  flex: 0 0 auto;
+  padding: 0.75rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background 180ms ease, border-color 180ms ease;
+}
+
+.wiki-community-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 0 0 auto;
+}
+
+.wiki-community-link {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.wiki-community-link:hover {
+  color: #fff;
+}
+
+.wiki-community-button:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.wiki-home-note {
+  margin: 0 auto 2rem;
+  color: var(--wiki-muted);
+  font-size: 0.9rem;
+  text-align: center;
 }
 
 .vp-doc h1 {
@@ -95,8 +337,48 @@
 @media (max-width: 640px) {
   .VPHome .VPHero {
     margin: 0.75rem 1rem 0;
-    padding: 3.5rem 1.5rem 3rem;
+    padding: 3.5rem 1.5rem 2rem;
     border-radius: 20px;
-    background-position: 68% center;
+  }
+
+  .VPHome .VPHero .image {
+    margin-top: 1.5rem;
+  }
+
+  .VPHome .VPHero .image-src {
+    width: 170px;
+    height: 170px;
+  }
+
+  .wiki-section-heading,
+  .wiki-community {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .wiki-section-heading p {
+    text-align: left;
+  }
+
+  .wiki-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .wiki-feature {
+    grid-template-columns: 3rem 1fr;
+  }
+
+  .wiki-feature > span {
+    display: none;
+  }
+
+  .wiki-community {
+    padding: 2rem 1.5rem;
+  }
+
+  .wiki-community-actions {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.8rem;
   }
 }

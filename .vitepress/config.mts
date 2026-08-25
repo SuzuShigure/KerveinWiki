@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   title: 'Kervein Wiki',
-  description: 'Kervein 的工程笔记、C++ 学习与可复用实践',
+  description: 'Kervein 的工程知识库、C++ 学习与团队实践',
   lang: 'zh-CN',
   cleanUrls: true,
   lastUpdated: true,
@@ -13,8 +13,10 @@ export default defineConfig({
     siteTitle: 'Kervein Wiki',
     nav: [
       { text: '首页', link: '/' },
+      { text: 'veic.tech 主站', link: 'https://veic.tech/' },
       { text: 'C++ 学习', link: '/cpp/' },
       { text: '工作区约定', link: '/guide/workspace' },
+      { text: 'Discord', link: 'https://discord.gg/gFbrZEZBH' },
       { text: 'GitHub', link: 'https://github.com/SuzuShigure/KerveinWiki' },
     ],
     sidebar: {
@@ -55,6 +57,7 @@ export default defineConfig({
     outline: { level: [2, 3] },
     search: { provider: 'local' },
     socialLinks: [
+      { icon: 'discord', link: 'https://discord.gg/gFbrZEZBH' },
       { icon: 'github', link: 'https://github.com/SuzuShigure/KerveinWiki' },
     ],
     footer: {
